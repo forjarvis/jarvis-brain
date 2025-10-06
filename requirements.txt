@@ -1,0 +1,23 @@
+# AI Brain & APIs
+openai==0.28.1         # The stable version for SambaCloud
+python-dotenv
+google-search-results  # For SerpApi
+
+# Audio Processing
+pyaudio
+pvporcupine
+pvcobra
+SpeechRecognition
+pygame
+edge-tts
+
+# Vision and Image Processing
+easyocr
+opencv-python-headless
+Pillow
+
+# Web & Server
+fastapi
+uvicorn[standard]      # The server that runs our app
+requests
+beautifulsoup4
