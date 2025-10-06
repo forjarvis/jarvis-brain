@@ -4,11 +4,7 @@ python-dotenv
 google-search-results  # For SerpApi
 
 # Audio Processing
-pyaudio
-pvporcupine
-pvcobra
 SpeechRecognition
-pygame
 edge-tts
 
 # Vision and Image Processing
