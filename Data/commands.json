@@ -1,0 +1,42 @@
+{
+  "adb": {
+    "take_screenshot": "adb shell screencap -p /sdcard/Pictures/screenshot_$(date +%s).png",
+    "record_screen": "adb shell screenrecord /sdcard/video.mp4",
+    "install_apk": "adb install {arg1}",
+    "uninstall_app": "adb uninstall {arg1}",
+    "push_file": "adb push {arg1} {arg2}",
+    "pull_file": "adb pull {arg1} {arg2}",
+    "reboot_device": "adb reboot",
+    "reboot_recovery": "adb reboot recovery",
+    "reboot_bootloader": "adb reboot bootloader",
+    "force_stop_app": "adb shell am force-stop {arg1}",
+    "start_activity": "adb shell am start -n {arg1}",
+    "send_keyevent": "adb shell input keyevent {arg1}",
+    "tap_screen": "adb shell input tap {arg1} {arg2}",
+    "swipe_screen": "adb shell input swipe {arg1} {arg2} {arg3} {arg4}",
+    "type_text": "adb shell input text '{arg1}'",
+    "grant_permission": "adb shell pm grant {arg1} {arg2}",
+    "revoke_permission": "adb shell pm revoke {arg1} {arg2}",
+    "set_brightness": "adb shell settings put system screen_brightness {arg1}",
+    "get_brightness": "adb shell settings get system screen_brightness",
+    "set_timeout": "adb shell settings put system screen_off_timeout {arg1}",
+    "capture_logcat": "adb logcat -d",
+    "battery_stats": "adb shell dumpsys battery",
+    "package_list": "adb shell pm list packages -3",
+    "clear_app_data": "adb shell pm clear {arg1}",
+    "backup_app": "adb backup -f backup.ab {arg1}",
+    "restore_app": "adb restore {arg1}"
+  },
+  "routines": {
+    "class_mode_on": [
+      "adb shell cmd audio set_ringer_mode 1",
+      "adb shell media volume --stream 3 --set 0",
+      "adb shell media volume --stream 1 --set 0"
+    ],
+    "class_mode_off": [
+      "adb shell cmd audio set_ringer_mode 2",
+      "adb shell media volume --stream 3 --set 7",
+      "adb shell media volume --stream 1 --set 4"
+    ]
+  }
+}

@@ -1,0 +1,29 @@
+
+            <!DOCTYPE html><html><head><title>Speech</title></head><body>
+            <button id='start' onclick='startRecognition()'></button><p id='output'></p>
+            <script>
+                let recog;
+                let final_transcript = '';
+                function startRecognition() {
+                    final_transcript = ''; // Reset transcript
+                    document.getElementById('output').textContent = '';
+                    recog = new (window.SpeechRecognition || window.webkitSpeechRecognition)();
+                    recog.lang = 'en-IN';
+                    recog.continuous = true; // Keep listening
+                    recog.interimResults = true; // Give us live updates
+
+                    recog.onresult = (event) => {
+                        let interim_transcript = '';
+                        for (let i = event.resultIndex; i < event.results.length; ++i) {
+                            if (event.results[i].isFinal) {
+                                final_transcript += event.results[i][0].transcript;
+                            } else {
+                                interim_transcript += event.results[i][0].transcript;
+                            }
+                        }
+                        document.getElementById('output').textContent = final_transcript + interim_transcript;
+                    };
+                    recog.start();
+                }
+            </script></body></html>
+            
