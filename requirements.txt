@@ -2,7 +2,7 @@
 openai==0.28.1         # The stable version for SambaCloud
 python-dotenv
 google-search-results  # For SerpApi
-
+groq
 # Audio Processing
 SpeechRecognition
 edge-tts
